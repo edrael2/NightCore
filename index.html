@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+ <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Church Registration</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cookie">
+    <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/css/user.css">
+    <link rel="stylesheet" href="assets/css/Pretty-Registration-Form.css">
+    <link rel="stylesheet" href="assets/css/Pretty-Footer.css">
+	 <link rel="stylesheet" href="assets/css/Hero-Technology.css">
+    <link rel="stylesheet" href="assets/css/Google-Style-Login.css">
+	
+	<script>
+		var token = localStorage.getItem('');
+			token = JSON.parse(token);
+			if(token == null){window.location.href = 'login.html';}
+	</script>
+</head>
+
+  <nav class="navbar navbar-default">
+        <div class="container">
+            <div class="navbar-header"><a class="navbar-brand navbar-link" href="index.html"><i class="glyphicon glyphicon-phone"></i>Church member tracker</a>
+                <button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
+            </div>
+            <div class="collapse navbar-collapse" id="navcol-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li role="presentation"><a href="registration.html">REGISTER MEMBER</a></li>
+                    <li role="presentation"><a href="members.html">VIEW MEMBERS</a></li>
+                    <li role="presentation"><a href="#">LOGS </a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+<body>
+<!----------------------  HOME JUMBOTRON ------------------------>
+<div class="jumbotron hero">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 col-md-push-7 phone-preview">
+                    <div class="iphone-mockup">
+                        <div class="screen"></div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-md-pull-3 get-it">
+                    <h1>CHURCH MEMBER TRACKER</h1>
+                    <p>Church member tracker is a database used for storing datas about people who attends
+						a specific church 
+					</p>
+                </div>
+            </div>
+        </div>
+    </div>  
+</body>
+<!----------------------  HOME JUMBOTRON ------------------------>
+
+<!------------------------------  FOOTER------------------------------------->
+<footer class="site-footer" style ="bottom:0; position:fixed;">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6">
+                    <h5>Mobile App © 2018</h5></div>
+                <div class="col-sm-6 social-icons"><a href="https://www.facebook.com/groups/213580032844677/"><i class="fa fa-facebook"></i></a><a href="#"><i class="fa fa-twitter"></i></a><a href="#"><i class="fa fa-instagram"></i></a></div>
+            </div>
+        </div>
+</footer>
+<!------------------------------  FOOTER------------------------------------->
+	<!--script>
+	   $(document).ready(function (){
+            var table = $('#myTable').DataTable({
+                "ajax":{
+                    "url":"php/viewAdmin.php",
+                    "dataSrc":"",
+                },
+                "columns":[
+                    {"data":"adminid"},
+                    {"data":"username"},
+                    {"data":"fname"},
+                    {"data":"mname"},
+                    {"data":"lname"},
+                    {"data":"emailadd"},
+                    {"defaultContent": "<input type='button' value='edit' class= 'btn btn-effect-ripple btn-xs btn-success td_btn'> <br><br> <input type='button' value='delete' class= 'btn btn-effect-ripple btn-xs btn-danger delete' >"}
+                ],
+            });
+	</script-->
+	<script src="assets/js/jquery.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<title>
+	Church Registration System
+</title>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Landing Page</title>
+    <link rel="stylesheet" href="assets2/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets2/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="assets2/css/user.css">
+    <link rel="stylesheet" href="assets2/css/Google-Style-Login.css">
+	<script>
+		//var token = localStorage.getItem("");
+			//token = JSON.parse(token);
+			if(token != null){ window.location.href = 'index.html';}
+	</script>
+</head>
+
+<body>
+    <nav class="navbar navbar-default">
+        <div class="container">
+            <div class="navbar-header"><a class="navbar-brand navbar-link" href="#"><i class="glyphicon glyphicon-phone"></i>Church member tracker</a>
+                <button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navcol-1"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
+            </div>
+            <div class="collapse navbar-collapse" id="navcol-1"></div>
+        </div>
+    </nav>
+    <div class="jumbotron hero">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 col-md-push-7 phone-preview">
+                    <div class="iphone-mockup"></div>
+                    <div class="login-card"><img src="assets2/img/church.jpg" width="80">
+                        <h2 class="text-uppercase text-center">CHURCH MEMBER TRACKER</h2>
+                        <p class="profile-name-card"> </p>
+                        <form class="form-signin" id="login-form" ><span class="reauth-email"> </span>
+							<div id="error"></div>
+                            <input class="form-control" type="text" required="" placeholder="Username" autofocus="" id="inputEmail">
+                            <input class="form-control" type="password" required="" placeholder="Password" id="inputPassword">
+                            <div class="checkbox"></div>
+                            <button class="btn btn-primary btn-block btn-lg btn-signin" type="submit" id="login_button">
+							<span class="glyphicon glyphicon-log-in"></span> 
+							LOG IN</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <section class="testimonials"></section>
+    <footer class="site-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6">
+                    <h5>Mobile App © 2018</h5></div>
+                <div class="col-sm-6 social-icons"><a href="#"><i class="fa fa-facebook"></i></a><a href="#"><i class="fa fa-twitter"></i></a><a href="#"><i class="fa fa-instagram"></i></a></div>
+            </div>
+        </div>
+    </footer>
+	<script>
+		function submitForm() {
+			var URL = "http://192.168.8.101:8080/";
+			var data = $("#login-form").serialize();
+			$.ajax({
+			type : 'POST',
+			url : 'login.php',
+			data : data,
+			beforeSend: function(){
+				$("#error").fadeOut();
+				$("#login_button").html('<span class="glyphicon glyphicon-transfer"></span>   sending ...');
+			},
+			success : function(response){
+				if(response=="ok"){
+					$("#login_button").html('<img src="ajax-loader.gif" />   Signing In ...');
+					setTimeout(' window.location.href = "'+URL+'/func/validate.php"; ',4000);
+				} 
+				else {
+					$("#error").fadeIn(1000, function(){
+						$("#error").html('<div class="alert alert-danger"> <span class="glyphicon glyphicon-info-sign"></span>   '+response+' !</div>');
+						$("#login_button").html('<span class="glyphicon glyphicon-log-in"></span>   Sign In');
+					});
+				}
+			}
+			});
+		return false;
+		}
+	</script>
+    <script src="assets2/js/jquery.min.js"></script>
+    <script src="assets2/bootstrap/js/bootstrap.min.js"></script>
+</body>
+
+</html>
